@@ -43,10 +43,13 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source /home/marchelo/powerlevel10k/powerlevel10k.zsh-theme
+source /home/kalix/
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# Evitamos el error de instant-prompt
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Manual configuration
 
@@ -65,7 +68,7 @@ alias cat='bat'
 # Plugins
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-sudo/zsh-sudo.zsh
+source ~/.zsh/zsh-sudo/sudo.plugin.zsh
 source ~/.zsh/zsh-colored-man-pages/colored-man-pages.plugin.zsh
 
 # Functions
@@ -128,3 +131,5 @@ function rmk(){
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
